@@ -1,0 +1,97 @@
+#lava {position:relative; text-align:center; width:768px; height:40px;padding:5px;background:#999; font:12px Tahoma; font-weight:bold;}
+#lava ul {margin:0;padding:5;list-style:none;display:inline;position:absolute;left:-17px;top:2px;z-index:100;width: 794px;height: 43px;}
+#lava a{color:#000; text-transform:capitalize; text-shadow:0px 0px 30px #FFF;}
+#lava a:hover{color:#000; text-shadow:0px 0px 30px #000;}
+#lava ul li {margin:15px 15px; float:left;}
+#lava #box {position:absolute;border:1px solid #000;left:0;top:5px;z-index:50;background:#e6e8ea;height:20px;padding:10px;margin-left:-10px;}
+#lava #box .head {background:#e6e8ea;height:20px;}
+body{background:#EDEFF4; padding:0;font-family: Tahoma, Helvetica, sans-serif;font-size: 11px;color: #686868;}
+a:visited {color: #3370a6;}
+a:hover{color:#000}
+a{color:#000; text-decoration:none;}
+#all {width:800px; height:auto; margin:0 auto; -moz-box-shadow:0px 0px 25px #000; background-color:#FFF; border:1px solid #444}
+#all #head{background:url(../img/head.png) no-repeat #3b5998; width:800px; height:110px; margin:0 auto; border-bottom:1px solid #163576;}
+#all #linkatas{min-height:22px; height:30px; background:#3b5998;padding:5px; border-bottom:1px solid #163576; border-top:1px solid #163576;}
+#all #link {width:740px; padding:10px;}
+#hold{z-index:3;position:absolute;top:141px;left:2px;width:958px;}
+#featured{background:url(../img/3.png) #000 top left no-repeat;width:100%;height:213px;padding-bottom:2px;border-bottom:;position:relative;overflow:hidden;margin:0;z-index:4;}
+/* === Featured Packages (img to left) === */
+#featured .sliderImages{position:absolute;left:30px;text-align:center;width:280px;height:202px;top:20px;}
+ul.slider-img-list{width:280px;margin: 0pt; padding: 0pt; position: relative; list-style-type: none; z-index: 1; top: 1200px;}
+ul.slider-img-list li{overflow: hidden; float: left; width: 300px; height: 202px; vertical-align:bottom;}
+ul.slider-img-list li img{width:280px; height:180px;}
+.sliderImages span, .arrows span{display:none;}
+/* === Featured next and previous links === */
+#featured .arrows{left:301px;position:absolute;top:29px;width:44px;}
+#featured .arrows a.next{margin-bottom:66px;}
+#featured .arrows a:link.next, #featured .arrows a:visited.next, #featured .arrows a:link.prev, #featured .arrows a:visited.prev{height:44px;width:44px;display:block;position:relative;}
+#featured .arrows a:hover.next, #featured .arrows a:hover.prev{height:44px;width:44px;display:block;}
+#featured .arrows a:link.next, #featured .arrows a:visited.next{background:url(../img/nexthover.png) top left no-repeat;}
+#featured .arrows a:hover.next{background:url(../img/next.png) top left no-repeat;}
+#featured .arrows a:link.prev, #featured .arrows a:visited.prev{background:url(../img/previous-hover.png) top left no-repeat;}
+#featured .arrows a:hover.prev{background:url(../img/previous.png) top left no-repeat;}
+/* === Featured Text (right side) === */
+.texthold{right:29px;top:20px;width:402px;height:202px;position:absolute;background:url(../img/slideright-title.png) top left no-repeat;}
+#featured .sliderText{width:402px;height:202px;position:absolute;left: 1px;top: 1px;}
+ul.slider-text-list{width:402px;margin: 0pt; padding: 0pt; position: absolute; list-style-type:  none; z-index: 1; left:-1800px;}
+ul.slider-text-list li{overflow: hidden; float: left; width: 402px; vertical-align:bottom; height:202px;}
+ul.slider-text-list li h2{width:392px;font-size:24px;color:white;margin:0;font-weight:normal;height:29px;padding:6px 0 10px 10px;}
+ul.slider-text-list li p{text-shadow:1px 1px #fff;color:#000;margin:0;padding:10px 30px 10px 10px;line-height:20px;}
+a.more{background:url(../img/readmore.jpg) repeat-x top;display:block;color:white;font-weight:bold;border:1px solid #669200;text-shadow:1px 1px #669200;width:70px;text-align:center;padding:4px;float:right;margin-right:30px;}
+/* === Services Section (homepage under featured) === */
+#services{background:url(../img/servicerepeat.jpg) repeat-x top;height:87px;width:100%;border-top:2px solid white;border-bottom:1px solid #ccc;}
+#services .box{float:left;height:97px;border-right:1px solid #cbcbcb;width:190px;position:relative;padding-left:104px;padding-top:30px;padding-right:20px;}
+#services .box2{float:left;height:97px;width:190px;position:relative;padding-left:104px;padding-top:30px;padding-right:20px;}
+#services .box img,#services .box2 img{position:absolute;left:20px;top:30px;}
+#services .box p, #services .box2 p{line-height:18px;padding:10px 0 0 0;margin:0;text-shadow:white 1px 1px;}
+#services h3{margin:0;color:#525252;font-size:18px;font-weight:normal;}
+/* === Main Content === */
+#all #content{width:800px;background:url(../img/contentrepeat.jpg) left repeat-y;position:relative;}
+/*  Right Column */
+#rightcolumn{float:right;width:209px;background:url(../img/rightcolumn.jpg) top repeat-x;padding:0px 20px 30px 20px; border-left:1px solid #CCC;}
+#rightcolumn h3{color:#000;font-weight:normal;font-size:18px;padding-bottom:10px;margin:0 0 10px 0;border-bottom:1px solid #dadada;}
+#rightcolumn  ul{list-style-image:none;list-style-position:outside;list-style-type:none;margin:0;padding:0 0 30px 0;}			
+#rightcolumn  ul li{padding:0px;margin:0px;}
+.col1 h3, .col2 h3{padding:0 0 15px 0;margin:0;}
+/*  Recent Blog Entries */
+#rightcolumn  ul li.bd{position:relative;}
+#rightcolumn  ul.bd a{text-decoration:none;}
+#rightcolumn  li.bd ul{padding:15px 0 15px 10px;width:200px;border-bottom: 1px solid #ededed;}
+#rightcolumn  li.bd ul li{line-height:18px;font-size:11px;}		
+#rightcolumn  ul li.bd ul li.title{font-size:12px;font-weight:bold;}
+#rightcolumn  ul li.bd ul li.title a{color:#3370a6;}
+#rightcolumn  ul li.ft{line-height:1px;}
+#rightcolumn  ul.blog-entries li.bd ul li.image{	float:left;	padding:0px 15px 0 0px;}	
+#rightcolumn  ul.blog-entries li.bd ul li.image{background:url(../img/thumbbg.png) no-repeat;width:89px;height:60px;}
+li.bd{}
+/*  Recent Testimonials */
+#rightcolumn ul li.testimonial{padding:20px 0 0px 0;border-bottom:1px solid #ededed;}
+#rightcolumn ul li.testimonial ul li.extract{font-size:12px;color:black;}
+#rightcolumn ul li.testimonial ul li.testimonial-main{line-height:18px;padding:10px 0 10px 0;font-size:12px;font-style:italic;}
+#rightcolumn ul li.testimonial ul li.testimonial-author{line-height:18px;padding:0 0 0 0;font-size:11px;}
+a img{border:none;}
+/* === Left Column === */
+#content #leftcolumn{float:left;width:490px;background:url(../img/leftcolumn.jpg) top repeat-x ;padding:20px 30px 30px 30px;line-height:20px;position:relative;}
+#content #leftcolumn #isi h2{}
+#all #footer{width:800px; height:45px; background:url(../img/footers.jpg) repeat-x bottom left;}
+#all #footer .author{color:#FFF; font-size:14px; text-align:right; padding:10px;}
+#content #leftcolumn #menuNya{font:12px Tahoma, Geneva, sans-serif; font-weight:bold}
+#content #leftcolumn #submenuNya{font:11px Tahoma;}
+/*contoh menu drop down*/
+#nav {margin:0; padding:0; list-style:none;}
+#nav li {float:left; display:block; padding:0 5px; width:auto; background:none; position:relative;z-index:500; margin:0 1px;}
+/* penggunaan untuk menu utama */
+#nav li a {display:block; padding:8px 5px 0 5px; font-weight:700;  height:23px; font-size:12px; text-decoration:none; color:#fff; text-align:center;}
+#nav li a:hover {color:#fff; background:#627aad;}
+/* dapat merubah sesuai dengan keinginan tampilan yang dibutuhkan */
+#nav a.selected {color:#000;}
+/* submenu, aturan awal tersembunyi */
+#nav ul {position:absolute; left:0; display:none; margin:0 0 0 0px; padding:5px 0 5px 0; list-style:none; border:1px solid #666; background: #FFF}
+#nav ul li a{min-width:130px; float:left;background:#fff; font-size:11px;}
+#nav ul a {display:inherit;  height:10px;padding: 8px 15px; color:#666; text-align:left;}
+#nav ul a:hover {text-decoration:none; background:#3b5998; color:#FFF; height:8px; border:1px solid #163576;}
+*html #nav ul {margin:0 0 0 -2px;}
+/*batas*/
+#tampil table{border-top:1px solid #163576; border-left:1px solid #163576; border-spacing:0px;}
+#tampil th{border-right:1px solid #163576; border-bottom:1px solid #163576; background:#3b5998; height:35px; color:#FFF; padding:5px 10px;}
+#tampil td{border-right:1px solid #163576; border-bottom:1px solid #163576; text-align:center; padding:2px 5px;}

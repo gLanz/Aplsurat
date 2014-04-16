@@ -1,0 +1,32 @@
+RewriteEngine on
+#RewriteBase /fix2/
+#RewriteRule ^index.php$ - [L]
+#Options +FollowSymlinks
+#RewriteRule ^newpattern$ oldpattern [QSA,L]
+
+#RewriteCond %{REQUEST_FILENAME} -f [OR]
+#RewriteCond %{REQUEST_FILENAME} -d
+#RewriteRule ^.*$ – [S=84]
+
+
+RewriteRule ^logr/?$ views/admin/login.php
+RewriteRule ^adminR/?$ views/admin/masukadmin.php
+
+RewriteRule ^registerR/?$ views/public/daftar.php
+RewriteRule ^berita/?$ views/public/news.php
+RewriteRule ^harga/?$ views/public/price.php
+RewriteRule ^logout/?$ views/public/kosong.php?link=_logout
+
+RewriteRule ^gotosignup(.*)/?$ views/public/_pendaftaran2.php
+RewriteRule ^index(.*)/?$ views/admin/index.php
+RewriteRule ^galeri-(.*)$ views/public/index.php?pg=galeriFoto&idk=$1
+
+#aricle
+RewriteRule ^pb-(.*)-(.*)/?$ index.php?pg=viewarticle&berita_judul=$1&berita_id=$2
+
+RewriteRule ^pg-(.*)-(.*)/?$ views/public/index.php?pg=conten&me_nm=$1&me_id=$2
+
+RewriteRule ^a.(.*)-(.*)-(.*)/?$ control/log/page.php?pg=../../view/public/$1&isi_nama_menu=$2&isi_id=$3
+RewriteRule ^req-(.*)/?$ views/public/kosong.php?link=$1 
+
+

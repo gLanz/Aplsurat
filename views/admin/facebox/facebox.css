@@ -1,0 +1,201 @@
+#facebox input[type="submit"] {
+	 	background:url(../img/submit.png) top left repeat-x;
+        background-color: #3b5998;
+        /*border-color: #d8dfea rgb(14, 31, 91) rgb(14, 31, 91) rgb(216, 223, 234);*/
+		border-color:#006;
+        border-style: solid;
+        border-width: 1px;
+        color: #fff;
+        font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+        font-size: 13px ;
+        margin: 0 2px;
+		padding:2px 10px;
+		font-weight:bold;
+		cursor:pointer;
+}
+#facebox input[type="button"] {
+	 	background:url(../img/button.png) top left repeat-x;
+        background-color: #CCC;
+        /*border-color: #d8dfea rgb(14, 31, 91) rgb(14, 31, 91) rgb(216, 223, 234);*/
+		border-color:#666;
+        border-style: solid;
+        border-width: 1px;
+        color: #333;
+        font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+        font-size: 13px ;
+        margin: 0 2px;
+		padding:2px 5px;
+		font-weight:bold;
+		cursor:pointer;
+}
+#tampil input[type="submit"] {
+	 	background:url(../img/page_white_delete.png) center no-repeat;
+        background-color: #3b5998;
+        /*border-color: #d8dfea rgb(14, 31, 91) rgb(14, 31, 91) rgb(216, 223, 234);*/
+		border-color:#006;
+        border-style: solid;
+        border-width: 1px;
+        color: #fff;
+        font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+        font-size: 13px ;
+        margin: 0 2px;
+		padding:2px 10px;
+		font-weight:bold;
+		cursor:pointer;
+}
+#tampil .validate input[type="submit"]{
+	 	background:url(../img/page_refresh.png) center no-repeat;
+        background-color: #3b5998;
+        /*border-color: #d8dfea rgb(14, 31, 91) rgb(14, 31, 91) rgb(216, 223, 234);*/
+		border-color:#006;
+        border-style: solid;
+        border-width: 1px;
+        color: #fff;
+        font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+        font-size: 13px ;
+        margin: 0 2px;
+		padding:2px 10px;
+		font-weight:bold;
+		cursor:pointer;
+}
+#tampil input[type="button"] {
+	 	background:url(../img/page_white_edit.png) center no-repeat;
+        background-color: #CCC;
+        /*border-color: #d8dfea rgb(14, 31, 91) rgb(14, 31, 91) rgb(216, 223, 234);*/
+		border-color:#666;
+        border-style: solid;
+        border-width: 1px;
+        color: #333;
+        font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+        font-size: 13px ;
+        margin: 0 2px;
+		padding:2px 10px;
+		font-weight:bold;
+		cursor:pointer;
+}
+#facebox input[type="text"],#facebox input[type="password"],#facebox input[type="file"],#facebox select{border: 1px solid #93a2c1; width:auto; background:url(../img/button.png) top repeat-x; font:Tahoma; font-size:14px; padding:5px 5px; margin:0px 0 10px 0;}
+#facebox textarea{background:url(../img/servicerepeat.jpg) top repeat-x;border: 1px solid #93a2c1; width:auto;font:Tahoma; font-size:14px; padding:3px 5px; margin:0px 0 10px 0; }
+#facebox #komen{height:auto;background:#f2f2f2; display:none; padding:10px; color:#FFF; text-align:left; color:#666; font-style:italic; text-align:center; padding:5px 10px;}
+#facebox #judulForm{height:auto; text-transform:uppercase; text-align:left; color:white; background:#3b5998; border-bottom:1px solid #039;font:14px Tahoma; font-weight:bold; padding:5px 10px;}
+#facebox #badanForm{padding-top:5px;}
+.error{height:auto;background:#C00; margin:0px; display:none; padding:10px; text-align:left; color:#FFF; font-style:italic; font-size:12px;}
+.hr {border-collapse:collapse; border-bottom:none; border-left:none; border-right:none;}
+#facebox #untukForm{padding:10px ; font:12px Tahoma; color:#333}
+#facebox #untukTombol{padding:10px; text-align:right; border-top:1px solid #ccc; background:#f2f2f2;}
+#facebox #untukTombol .delete { border:#9f0108 solid 1px; padding:6px 10px 4px 10px; border-radius:2px; background:#F00; color:#FFF; text-decoration:none; text-shadow: 0 1px 0 #000;font-weight:bold;}
+#facebox #untukTombol .delete a{
+background: #D0D1D4; text-decoration:none;
+border: 1px solid #ff4444; 
+-webkit-box-shadow: 0 1px 0 #444;
+-moz-box-shadow: 0 1px 0 #444;
+box-shadow: 0 1px 0 #444;
+font-weight: bold; margin:0px 0 0 0px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 2px;
+padding: 5px 10px;
+color:#ebebeb;
+text-shadow: 0 1px 0 #444;
+cursor: pointer;
+}
+
+#facebox #untukTombol .delete:hover ,.delete a:hover {
+color: #FFF;
+}
+
+<!-- #facebox .body .biru{background-color:#3b5998; width:auto; height:50px;}-->
+#facebox .b {
+  background:url(b.png);
+}
+
+#facebox .tl {
+  background:url(tl.png);
+}
+
+#facebox .tr {
+  background:url(tr.png);
+}
+
+#facebox .bl {
+  background:url(bl.png);
+}
+
+#facebox .br {
+  background:url(br.png);
+}
+
+#facebox {
+  position: absolute;
+  top: 0;
+  left: 0; 
+  z-index: 99999;
+  text-align: left;
+}
+
+#facebox .popup {
+  position: relative;
+}
+
+#facebox table {
+  border-collapse: collapse;
+}
+
+#facebox td {
+
+}
+
+#facebox .body {
+  padding: 0px;
+  background: #fff;
+  width: 370px;
+  border:1px solid #333;
+}
+
+#facebox .loading {
+  text-align: center;
+}
+
+#facebox .image {
+  text-align: center;
+}
+
+#facebox img {
+  border: 0;
+  margin: 0;
+}
+
+#facebox .footer {
+  border-top: 1px solid #DDDDDD;
+  padding-top: 5px;
+  margin-top: 10px;
+  text-align: right;
+}
+
+#facebox .tl, #facebox .tr, #facebox .bl, #facebox .br {
+  height: 10px;
+  width: 10px;
+  overflow: hidden;
+  padding: 0;
+}
+
+#facebox_overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height:100%;
+  width:100%;
+}
+
+.facebox_hide {
+  z-index:-100;
+}
+
+.facebox_overlayBG {
+  background-color: #000;
+  z-index: 99;
+}
+
+* html #facebox_overlay { /* ie6 hack */
+  position: absolute;
+  height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px');
+}
