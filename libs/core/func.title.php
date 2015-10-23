@@ -59,36 +59,4 @@ $ORGANISASI[2]="Umum";
 
 $title_fot='CoDes Kredit PHP - Application return to ';
 $version ='Co-Version 1.0';
-
-//array bulan
-$BULAN[1]='Januari';
-$BULAN[2]='Februari';
-$BULAN[3]='Maret';
-$BULAN[4]='April';
-$BULAN[5]='Mei';
-$BULAN[6]='Juni';
-$BULAN[7]='Juli';
-$BULAN[8]='Agustus';
-$BULAN[9]='September';
-$BULAN[10]='Oktober';
-$BULAN[11]='Nopember';
-$BULAN[12]='Desember';
-
-$b[]='Nopember';
-$b[]='Desember';
-
-
-//print_r($BULAN);
-			//array putusan
-$PUTUSAN[1]		='Pidana mati';
-$PUTUSAN[2]		='Pidana seumur hidup';
-$PUTUSAN[3]		='Pidana Penjara';
-$PUTUSAN[4]		='Pidana Kurungan';
-$PUTUSAN[5]		='Pidana bersyarat';
-$PUTUSAN[6]		='Pidana denda';
-$PUTUSAN[7]		='Pidana tambahan';
-$PUTUSAN[8]		='Dikembalikan kepada orangtua';
-$PUTUSAN[9]		='Diserahkan kepada pemerintah';
-$PUTUSAN[10]	='Bebas dari tuduhan';
-$PUTUSAN[11]	='Lepas dari tuntutan';
 ?>
