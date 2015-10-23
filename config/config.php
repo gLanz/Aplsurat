@@ -2,8 +2,8 @@
 error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 define( DBHOST, "localhost",true ); // The true makes it so you have to type in DBHOST
 define( DBUSER, "root",true );    // in caps to retreive the string.
-define( DBPASS, "scripterror", true );
-define( DBNAME, "db_simsurat",true );
+define( DBPASS, "", true );
+define( DBNAME, "db_aplsurat",true );
 
 
 
