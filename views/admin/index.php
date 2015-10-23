@@ -153,7 +153,7 @@ top: auto;
 <body>
 	<header id="header">
 		<hgroup>
-			<h1 class="site_title"><a href="index.php"><em>piranti simSURAT</em></a></h1>
+			<h1 class="site_title"><a href="index.php"><em>APL simSURAT</em></a></h1>
 			<h2 class="section_title">&nbsp;</h2><div class="btn_view_site"><a href="#" target="_blank">#</a></div>
 		</hgroup>
 	</header> <!-- end of header bar -->
