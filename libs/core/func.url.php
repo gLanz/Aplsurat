@@ -1,4 +1,4 @@
-<?
+<?php
 // Script write url 
 function geturl() {
 	//$host =$_SERVER['HTTP_HOST'];
