@@ -96,9 +96,8 @@ if($_REQUEST['li']==1){
 				        <td width="13%" class="td1">Last Update</td>
                         <td width="14%" class="td1">Keterangan</td>
                       </tr>
-				      <?php while( ($record = $pegRecordSet->getNextRecord()) !== false ){
-
-						  ?>
+		<?php while( ($record = $pegRecordSet->getNextRecord()) !== false ){
+		  ?>
 				      <tbody>
 				        <tr>
 				          <td align="left" class="td2">
@@ -119,7 +118,7 @@ if($_REQUEST['li']==1){
 			        </table>
 
 <?php if($_REQUEST['data']=='reset'){
-							$id=$_GET['id'];//$gro='jetusat';
+	$id=$_GET['id'];//$gro='jetusat';
 	//$par=new Parameter();
 	$idRecordSet = $account->getAkunById($id); // get the record set for this Id.
     $idrecord = NULL; // This will make sure that we dont have the same record when we refresh the page.
