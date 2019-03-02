@@ -1,4 +1,4 @@
-<? ob_start();
+<?php ob_start();
 session_start();
 ob_clean();
 if(isset($_SESSION['error'])){  
@@ -22,7 +22,7 @@ require"../../config/includes.php";
 		});
 	});
 </script>
-<?
+<?php
 if($_REQUEST[tampil]=='sm')
 { 
 	$id = $_GET['id'];
@@ -105,7 +105,7 @@ if($_REQUEST[tampil]=='sm')
 			  <div class="submit_link">
             </div>
          </footer>
-<? }elseif($_REQUEST[tampil]=='sk')
+<?php }elseif($_REQUEST[tampil]=='sk')
 { 
 	$id = $_GET['id'];
 	//$content=new Surat();
@@ -124,91 +124,91 @@ if($_REQUEST[tampil]=='sm')
   <tr>
     <td width="27%" align="right" valign="top">Tanggal Surat diterima</td>
     <td width="2%" align="center" valign="top">:</td>
-    <td width="71%"><input id="date3" class="datepicker" style=" width:80px;" name="tglterima" type="text" value="<?php echo isset($_POST['tglterima']) ? $_POST['tglterima'] : $skrecord[sk_tglterima]?>"/></td>
+    <td width="71%"><input id="date3" class="datepicker" style=" width:80px;" name="tglterima" type="text" value="<?php echo isset($_POST['tglterima']) ? $_POST['tglterima'] : $skrecord['sk_tglterima']?>"/></td>
   </tr>
    <tr>
      <td align="right" valign="top">Bagian Pengirim</td>
      <td align="center" valign="top">:</td>
      <td valign="top"><select name="bagian" id="bagian">
        <option selected="selected">Pilih</option>
-       <? while( ($barecord = $baRecordSet->getNextRecord()) !== false ){
-		    if($skrecord[sk_bagian]==$barecord[id]){ ?>
+       <?php while( ($barecord = $baRecordSet->getNextRecord()) !== false ){
+		    if($skrecord['sk_bagian']==$barecord[id]){ ?>
        <option value="<?=$barecord[1]?>" <?php echo isset($_POST['bagian']) && $_POST['bagian']==$barecord[1] ? 'selected="selected"': '';?> selected="selected"><?=$barecord[2]?></option>
-       <? }else{?>
+       <?php }else{?>
        <option value="<?=$barecord[1]?>" <?php echo isset($_POST['bagian']) && $_POST['bagian']==$barecord[1] ? 'selected="selected"': '';?>><?=$barecord[2]?></option>
-       <? }}?>
+       <?php }}?>
        </select></td>
    </tr>
    <tr>
      <td align="right" valign="top">Nomor Agenda </td>
      <td align="center" valign="top">:</td>
-     <td><input id="noagenda" name="noagenda" type="text" style=" width:300px;" value="<?php echo isset($_POST['noagenda']) ? $_POST['noagenda'] : $skrecord[sk_noagenda]?>" /></td>
+     <td><input id="noagenda" name="noagenda" type="text" style=" width:300px;" value="<?php echo isset($_POST['noagenda']) ? $_POST['noagenda'] : $skrecord['sk_noagenda']?>" /></td>
    </tr>
    <tr>
      <td align="right" valign="top"><label>Perihal Surat</label></td>
      <td align="center" valign="top">:</td>
-     <td><textarea name="perihal" cols="40" id="perihal"><?php echo isset($_POST['perihal']) ? $_POST['perihal'] : $skrecord[sk_perihal];?></textarea>     
-       <input name="idsuke" type="hidden" id="idsuke" value="<?=$skrecord[idsuke]?>" /></td>
+     <td><textarea name="perihal" cols="40" id="perihal"><?php echo isset($_POST['perihal']) ? $_POST['perihal'] : $skrecord['sk_perihal'];?></textarea>     
+       <input name="idsuke" type="hidden" id="idsuke" value="<?=$skrecord['idsuke']?>" /></td>
    </tr>
    <tr>
      <td align="right" valign="top">Tanggal Surat Keluar</td>
      <td align="center" valign="top">:</td>
-     <td><input id="date_filed_for-2" class="datepicker" style=" width:80px;" name="tglsuratkeluar" type="text" value="<?php echo isset($_POST['tglsuratkeluar']) ? $_POST['tglsuratkeluar'] : $skrecord[sk_tglkeluar]?>"/></td>
+     <td><input id="date_filed_for-2" class="datepicker" style=" width:80px;" name="tglsuratkeluar" type="text" value="<?php echo isset($_POST['tglsuratkeluar']) ? $_POST['tglsuratkeluar'] : $skrecord['sk_tglkeluar']?>"/></td>
    </tr>
    <tr>
      <td align="right" valign="top">Pengirim Surat</td>
      <td align="center" valign="top">:</td>
      <td><select name="pengirim" id="pengirim">
        <option selected="selected">Pilih</option>
-       <? while( ($pegrecord = $pegRecordSet->getNextRecord()) !== false ){
-		   if($skrecord[sk_pengirim]==$pegrecord[description]){ ?>
+       <?php while( ($pegrecord = $pegRecordSet->getNextRecord()) !== false ){
+		   if($skrecord['sk_pengirim']==$pegrecord['description']){ ?>
        <option value="<?=$pegrecord[2]?>" <?php echo isset($_POST['pengirim']) && $_POST['pengirim']==$pegrecord[2] ? 'selected="selected"': '';?> selected="selected">
          <?=$pegrecord[2]?></option>
-       <? }else{?>
+       <?php }else{?>
        <option value="<?=$pegrecord[2]?>" <?php echo isset($_POST['pengirim']) && $_POST['pengirim']==$pegrecord[2] ? 'selected="selected"': '';?>>
          <?=$pegrecord[2]?></option>
-       <? }}?>
+       <?php }}?>
        </select></td>
    </tr>
    <tr>
      <td align="right" valign="top">Tanggal Kirim Surat</td>
      <td align="center" valign="top">:</td>
-     <td><input id="date4" class="datepicker" style=" width:80px;" name="tglkirim" type="text" value="<?php echo isset($_POST['tglkirim']) ? $_POST['tglkirim'] : $skrecord[sk_tglkirim]?>"/></td>
+     <td><input id="date4" class="datepicker" style=" width:80px;" name="tglkirim" type="text" value="<?php echo isset($_POST['tglkirim']) ? $_POST['tglkirim'] : $skrecord['sk_tglkirim']?>"/></td>
    </tr>
    <tr>
      <td align="right" valign="top">Yang menyerahkan surat</td>
      <td align="center" valign="top">:</td>
-     <td><input id="penyerah" name="penyerah" type="text" style=" width:300px;" value="<?php echo isset($_POST['penyerah']) ? $_POST['penyerah'] : $skrecord[sk_penyerah]?>" /></td>
+     <td><input id="penyerah" name="penyerah" type="text" style=" width:300px;" value="<?php echo isset($_POST['penyerah']) ? $_POST['penyerah'] : $skrecord['sk_penyerah']?>" /></td>
    </tr>
    <tr>
      <td align="right" valign="top">Penerima Surat</td>
      <td align="center" valign="top">:</td>
-     <td><input id="penerima" name="penerima" type="text" style=" width:300px;" value="<?php echo isset($_POST['penerima']) ? $_POST['penerima'] : $skrecord[sk_penerima]?>" /></td>
+     <td><input id="penerima" name="penerima" type="text" style=" width:300px;" value="<?php echo isset($_POST['penerima']) ? $_POST['penerima'] : $skrecord['sk_penerima']?>" /></td>
    </tr>
    <tr>
      <td align="right" valign="top">Jenis Pengiriman</td>
      <td align="center" valign="top">:</td>
      <td><select name="jeniskirim" id="kategori">
        <option selected="selected">Pilih</option>
-       <? while( ($jkrecord = $jkRecordSet->getNextRecord()) !== false ){
-		    if($skrecord[sk_jeniskirim]==$jkrecord[description]){ ?>
+       <?php while( ($jkrecord = $jkRecordSet->getNextRecord()) !== false ){
+		    if($skrecord['sk_jeniskirim']==$jkrecord['description']){ ?>
        <option value="<?=$jkrecord[2]?>" <?php echo isset($_POST['level']) && $_POST['level']==$jkrecord[2] ? 'selected="selected"': '';?> selected="selected">
          <?=$jkrecord[2]?></option>
-        <? }else{?>
+        <?php }else{?>
                <option value="<?=$jkrecord[2]?>" <?php echo isset($_POST['level']) && $_POST['level']==$jkrecord[2] ? 'selected="selected"': '';?>>
          <?=$jkrecord[2]?></option>
-       <? }}?>
+       <?php }}?>
      </select></td>
    </tr>
    <tr>
      <td align="right" valign="top">Nomor resi</td>
      <td align="center" valign="top">:</td>
-     <td><input id="noresi" name="noresi" type="text" style=" width:300px;" value="<?php echo isset($_POST['noresi']) ? $_POST['noresi'] : $skrecord[sk_noresi]?>" /></td>
+     <td><input id="noresi" name="noresi" type="text" style=" width:300px;" value="<?php echo isset($_POST['noresi']) ? $_POST['noresi'] : $skrecord['sk_noresi']?>" /></td>
    </tr>
    <tr>
      <td align="right" valign="top">Tanggal resi</td>
      <td align="center" valign="top">:</td>
-     <td><input id="date5" class="datepicker" style=" width:80px;" name="tglresi" type="text" value="<?php echo isset($_POST['tglresi']) ? $_POST['tglresi'] : $skrecord[sk_tglresi]?>"/></td>
+     <td><input id="date5" class="datepicker" style=" width:80px;" name="tglresi" type="text" value="<?php echo isset($_POST['tglresi']) ? $_POST['tglresi'] : $skrecord['sk_tglresi']?>"/></td>
    </tr>
    <tr>
      <td align="right" valign="top">File Surat</td>
@@ -234,7 +234,7 @@ if($_REQUEST[tampil]=='sm')
 </form>
 </div>
 
-<? }elseif($_REQUEST[tampil]=='ism')
+<?php }elseif($_REQUEST[tampil]=='ism')
 {
 	$id = $_GET['id'];
 	$content=new Surat();
@@ -261,19 +261,19 @@ if($_REQUEST[tampil]=='sm')
  <table width="600" border="0" cellspacing="0">
   <tr><td width="150" align="right" valign="top"><label>Nomor Agenda Surat</label></td>
     <td width="16" align="center" valign="top">:</td>
-    <td width="428"><?=$xrecord[no_agendasurat]?><input name="noagenda" type="hidden" id="menu"readonly="readonly" value="<?=$xrecord[no_agendasurat]?>"></td>
+    <td width="428"><?=$xrecord['no_agendasurat']?><input name="noagenda" type="hidden" id="menu"readonly="readonly" value="<?=$xrecord['no_agendasurat']?>"></td>
    </tr>
   <tr><td width="150" align="right" valign="top"><label>Perihal Surat</label></td>
     <td width="16" align="center" valign="top">:</td>
-    <td width="428"><?=$xrecord[perihal_su]?></td>
+    <td width="428"><?=$xrecord['perihal_su']?></td>
    </tr>
   <tr><td width="150" align="right" valign="top"><label>Asal Surat</label></td>
     <td width="16" align="center" valign="top">:</td>
-    <td width="428"><?=$xrecord[asal_su]?></td>
+    <td width="428"><?=$xrecord['asal_su']?></td>
    </tr>
   <tr><td width="150" align="right" valign="top"><label>Tujuan Surat</label></td>
     <td width="16" align="center" valign="top">:</td>
-    <td width="428"><?=$xrecord[tujuan_su]?></td>
+    <td width="428"><?=$xrecord['tujuan_su']?></td>
    </tr>
    <tr>
     <td colspan="3" align="right" valign="top"><hr /></td>
@@ -282,42 +282,42 @@ if($_REQUEST[tampil]=='sm')
    <tr>
    <td align="right" valign="top"><label>Tanggal Terima Surat </label></td>
    <td align="center" valign="top">:</td>
-   <td><input name="tglterima" type="text" id="date_filed_for-1" style="width:100px;" value="<?=$arecord[tglditerima]?>"></td>
+   <td><input name="tglterima" type="text" id="date_filed_for-1" style="width:100px;" value="<?=$arecord['tglditerima']?>"></td>
   </tr>
 
    <tr>
    <td align="right" valign="top"><label>Tanggal Disposisi </label></td>
    <td align="center" valign="top">:</td>
-   <td><input type="text" name="tgldisposisi" id="date_filed_for-2" style="width:100px;" value="<?=$arecord[tgldisposisi]?>"></td>
+   <td><input type="text" name="tgldisposisi" id="date_filed_for-2" style="width:100px;" value="<?=$arecord['tgldisposisi']?>"></td>
   </tr>
    <tr>
    <td align="right" valign="top"><label>Isi Disposisi</label></td>
    <td align="center" valign="top">:</td>
-   <td><textarea name="isidisposisi" id="isidisposisi" style="width:400px;height:50px;"><?=$arecord[isidisposisi]?></textarea>
-     <input name="acc_id" readonly type="hidden" id="id" value="<?=$_SESSION[id]?>" />
-     <input name="idsurat" readonly type="hidden" id="id" value="<?=$record[idsurat]?>" />
-     <input name="idx" readonly type="hidden" id="id" value="<?=$arecord[id]?>" />
+   <td><textarea name="isidisposisi" id="isidisposisi" style="width:400px;height:50px;"><?=$arecord['isidisposisi']?></textarea>
+     <input name="acc_id" readonly type="hidden" id="id" value="<?=$_SESSION['id']?>" />
+     <input name="idsurat" readonly type="hidden" id="id" value="<?=$record['idsurat']?>" />
+     <input name="idx" readonly type="hidden" id="id" value="<?=$arecord['id']?>" />
      </td>
   </tr>
    <tr>
      <td align="right" valign="top">Yang Mendisposisi</td>
      <td align="center" valign="top">:</td>
-     <td><input name="pendisposisi" type="text" id="menu2" style="width:300px; height:15px;" value="<?=$arecord[pendisposisi]?>" /></td>
+     <td><input name="pendisposisi" type="text" id="menu2" style="width:300px; height:15px;" value="<?=$arecord['pendisposisi']?>" /></td>
    </tr>
    <tr>
      <td align="right" valign="top">Tindak Lanjut</td>
      <td align="center" valign="top">:</td>
-     <td><textarea name="tindaklanjut" id="tindaklanjut" style="width:400px;height:50px;"><?=$arecord[tindaklanjut]?></textarea></td>
+     <td><textarea name="tindaklanjut" id="tindaklanjut" style="width:400px;height:50px;"><?=$arecord['tindaklanjut']?></textarea></td>
    </tr>
 
  </table>
 </div>
     <div id="untukTombol"><span style="float:left;">Tanggal Hari Ini : <i><?=ubahTanggal(date("Y-m-d"));?></i></span>
-    <? if($akunRecordSet->getRecordCount() == 1){?>
+    <?php if($akunRecordSet->getRecordCount() == 1){?>
     <input type="submit" value="Update Isian Surat" name="usuratstatus" class="tombol" id="usuratstatus">
-    <? }else{?>
+    <?php }else{?>
     <input type="submit" value="Insert Isian Surat" name="isuratstatus" class="tombol" id="isuratstatus">
-    <? }?>
+    <?php }?>
     <label><input type="button" value="Batal" aria-hidden="true" onClick="javascript:$.facebox.close();"></label>
     </div>
 </form>
@@ -328,7 +328,7 @@ if($_REQUEST[tampil]=='sm')
 			  <div class="submit_link">
             </div>
          </footer>
-<? }elseif($_REQUEST[tampil]=='3')
+<?php }elseif($_REQUEST[tampil]=='3')
 {
 	$id = $_GET['id']; 
 	$name = 'user_level';
@@ -408,7 +408,7 @@ if($_REQUEST[tampil]=='sm')
     </div>
 </form>
 </div>
-<? }elseif($_REQUEST[tampil]=='33')
+<?php }elseif($_REQUEST[tampil]=='33')
 {
 	$id = $_GET['xid']; 
 	$nma=$_GET['nm'];
@@ -463,7 +463,7 @@ if($_REQUEST[tampil]=='sm')
     </div>
 </form>
 </div>
-<? }elseif($_REQUEST[tampil]=='5')
+<?php }elseif($_REQUEST[tampil]=='5')
 { 
 	$parameter = new Parameter();
 	$akun = new Account();
@@ -500,13 +500,13 @@ if($_REQUEST[tampil]=='sm')
      <td class="td2">
        <select name="level" id="level">
          <option selected="selected">Pilih</option>
-         <? while( ($trecord2 = $pegRecordSet1->getNextRecord()) !== false ){
+         <?php while( ($trecord2 = $pegRecordSet1->getNextRecord()) !== false ){
 		if($record[level]==$trecord2[id]){ ?>
          <option value="<?=$trecord2[1]?>" <?php echo isset($_POST['kat']) && $_POST['kat']==$trecord2[1] ? 'selected="selected"': $record[level];?> selected="selected"> <?=$trecord2[2]?> </option>
-         <? }else{?>
+         <?php }else{?>
          <option value="<?=$trecord2[1]?>" <?php echo isset($_POST['kat']) && $_POST['kat']==$trecord2[0] ? 'selected="selected"': $record[level];?>>
            <?=$trecord2[2]?></option>
-         <? }}?>
+         <?php }}?>
        </select>
      </td>
    </tr>
@@ -537,7 +537,7 @@ if($_REQUEST[tampil]=='sm')
 </form>
 </div>
 
-<? }elseif($_REQUEST[tampil]=='6')
+<?php }elseif($_REQUEST[tampil]=='6')
 { $query=mysql_query("SELECT*FROM co_questbook WHERE idquest='".$_GET[id]."'");
 $jaln=mysql_fetch_array($query);
 ?>
@@ -552,7 +552,7 @@ $jaln=mysql_fetch_array($query);
    <tr>
      <td width="14%" height="25">Status </td>
     <td width="86%">: <span class="tdin1">
-      <? if($jaln[status]=='1'){echo"<input type=\"radio\" value=\"1\" name=\"status\" checked=\"checked\" /> Aktif <input type=\"radio\" value=\"0\" name=\"status\" /> Tidak Aktif";}else {echo"<input type=\"radio\" value=\"1\" name=\"status\" /> Aktif <input type=\"radio\" value=\"0\" name=\"status\" checked=\"checked\" /> Tidak Aktif";}?>
+      <?php if($jaln[status]=='1'){echo"<input type=\"radio\" value=\"1\" name=\"status\" checked=\"checked\" /> Aktif <input type=\"radio\" value=\"0\" name=\"status\" /> Tidak Aktif";}else {echo"<input type=\"radio\" value=\"1\" name=\"status\" /> Aktif <input type=\"radio\" value=\"0\" name=\"status\" checked=\"checked\" /> Tidak Aktif";}?>
     </span></td>
    </tr>
    <tr>
@@ -590,7 +590,7 @@ $jaln=mysql_fetch_array($query);
 			  <div class="submit_link">
             </div>
          </footer>
-<? }
+<?php }
 elseif($_REQUEST['tampil']=='10')
 {
 $linkQ=mysql_query("SELECT*FROM tbnews where berita_id='".$_GET[id]."'");$jaLink=mysql_fetch_array($linkQ);$isinya=$jaLink['berita_isi'];
@@ -683,7 +683,7 @@ else
   </table>
 </form><div class="clear"></div>
 </div>
-<? }elseif($_REQUEST['tampil']=='8'){
+<?php }elseif($_REQUEST['tampil']=='8'){
 	$content=new Account();
 	$pegRecordSet = $content->getAkunById($id); // get the record set for this Id.
     $record = NULL; // This will make sure that we dont have the same record when we refresh the page.
