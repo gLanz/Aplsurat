@@ -24,7 +24,7 @@ font-family:Tahoma, Geneva, sans-serif;
 </head>
 
 <body>
-<? include"../../config/includes.php";
+<?php include"../../config/includes.php";
 ?>
 
 <?php
@@ -46,7 +46,7 @@ font-family:Tahoma, Geneva, sans-serif;
    </div><div style="clear:both;"></div>
  <div id="formreg-button"><input type="submit" value="Masuk" name="login" class="button" /></div><div style="clear:both;"></div>
  <div id="form-msg"><? include"../../config/msg.php";?></div>
- <div id="form-copy">&copy;2013 <?=$APP_NAME?> - <?=$APP_Ver?> <br> <?=$APP_Back?></div>
+ <div id="form-copy">&copy;2013 <?php echo $APP_NAME;?> - <?php echo $APP_Ver;?> <br> <?php echo $APP_Back;?></div>
                     </div>
 </form>
 
