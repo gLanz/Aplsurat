@@ -16,7 +16,7 @@ else
 <!doctype html>
 <html lang="en"><head>
 	<meta charset="utf-8"/>
-	<title><?=$ad_title?></title>
+	<title><?php echo $ad_title;?></title>
 	
 	<link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/jquery-ui.css" />
@@ -34,12 +34,12 @@ changeYear: true });
 })
 $(function() {
 $( "#datepicker" ).datepicker({
-<!--showOn: "button",
-<!--buttonImage: "../../assets/imgs/ew_calendar.gif",
-<!--buttonImageOnly: true,
-changeMonth: true,
-changeYear: true,
-dateFormat: "yy-mm-dd"
+  showOn: "button",
+  buttonImage: "../../assets/imgs/ew_calendar.gif",
+  buttonImageOnly: true,
+ changeMonth: true,
+ changeYear: true,
+ dateFormat: "yy-mm-dd"
 });
 });
 </script>
@@ -71,8 +71,8 @@ $(
 
 <script type="text/javascript">
 $(document).ready(function(){
-						   $("a[rel*=faber]").facebox($.facebox.settings.opacity = 0.5);
-						   });
+	$("a[rel*=faber]").facebox($.facebox.settings.opacity = 0.5);
+});
 var arefresh = setInterval(
 function (){ $('#divTox').load('index.php #divTox').fadeIn("slow");}, 1000); 
 </script>
@@ -158,7 +158,7 @@ top: auto;
 	
 	<section id="secondary_bar">
 		<div class="user">
-			<p> #<?=$id?> | <?php print $_SESSION['nama'];?></p>
+			<p> #<?php echo $id;?> | <?php print $_SESSION['nama'];?></p>
 			<!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
 		</div>
 		<div class="breadcrumbs_container">
@@ -172,7 +172,7 @@ top: auto;
 	</section><!-- end of secondary bar -->
 	
 	<aside id="sidebar" class="column">
-		<?php	
+<?php 	
 	$acces=new Account();
 	//print $level;
 	$iduser=$_SESSION['id'];
@@ -197,12 +197,12 @@ top: auto;
 		</ul>
 		<h3>Surat Masuk</h3>
 		<ul class="toggle">
-	<?php if(tampilMenu($trecord1['action_6'])){ ?><li class="icn_categories"><a href="?link=copage&li=3&isi=Surat">Post Surat</a></li><?php }?>
-        <?php if(tampilMenu($trecord1['action_7'])){ ?><li class="icn_new_article"><a href="?link=copage&li=4&isi=Surat">Cari Surat</a></li><?php }?>
-        <?php if(tampilMenu($trecord1['action_8'])){ ?><li class="icn_categories"><a href="?link=copage&li=5&isi=RiviewSuMa">Result</a></li><?php }?>
-        <?php if(tampilMenu($trecord1['action_9'])){ ?> <li class="icn_categories"><a href="?link=copage&li=8&isi=RiviewSuMa">Review</a></li><?php }?>
+			<?php if(tampilMenu($trecord1['action_6'])){ ?><li class="icn_categories"><a href="?link=copage&li=3&isi=Surat">Post Surat</a></li><?php }?>
+            <?php if(tampilMenu($trecord1['action_7'])){ ?><li class="icn_new_article"><a href="?link=copage&li=4&isi=Surat">Cari Surat</a></li><?php }?>
+            <?php if(tampilMenu($trecord1['action_8'])){ ?><li class="icn_categories"><a href="?link=copage&li=5&isi=RiviewSuMa">Result</a></li><?php }?>
+            <?php if(tampilMenu($trecord1['action_9'])){ ?> <li class="icn_categories"><a href="?link=copage&li=8&isi=RiviewSuMa">Review</a></li><?php }?>
            </ul>
-           <? }?>
+           <?php }?>
       <h3>Surat Keluar</h3> 
       <ul class="toggle">
            <?php if(tampilMenu($trecord1['action_10'])){ ?><li class="icn_categories"><a href="?link=copage&li=6&isi=SuratKeluar">Post Surat</a></li><?php }?>
@@ -211,11 +211,11 @@ top: auto;
            
 		</ul>
    
-	<!---->
+  -->
 		
 		<footer>
 			<hr />
-			<p><strong>CopyRight &copy;<?=$ad_year?> <?=$ad_title?></strong></p>
+			<p><strong>CopyRight &copy;<?php echo $ad_year;?> <?php echo $ad_title;?></strong></p>
 			<p>Theme by <a target="_blank" href="http://fabernainggolan.net">coDEs</a></p>
 		</footer>
 	</aside><!-- end of sidebar -->
