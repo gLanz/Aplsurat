@@ -119,13 +119,13 @@ switch ($_GET['msg']) {
 
 
 ?><br>
-<? $get=$_GET['msg']; $pecah=substr($get,0,1);
+<?php $get=$_GET['msg']; $pecah=substr($get,0,1);
 if($pecah == '5'){?>
 <h4 class="alert_info" ><?=$pesan?></h4>
-<? }elseif($pecah =='4'){?>
+<?php }elseif($pecah =='4'){?>
 <h4 class="alert_error" ><?=$pesan?></h4>
-<? }elseif($pecah =='3'){?>
+<?php }elseif($pecah =='3'){?>
 <h4 class="alert_success"><?=$pesan?></h4>
-<? }elseif($pecah =='2'){?>
+<?php }elseif($pecah =='2'){?>
 <h4 class="alert_success"><?=$pesan?></h4>
-<? } }; ?>
+<?php } }; ?>
