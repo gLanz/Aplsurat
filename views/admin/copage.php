@@ -1,4 +1,4 @@
-<? ob_start();
+<?php ob_start();
 session_start();
 ob_clean();
 if(isset($_SESSION['error'])){  
@@ -37,7 +37,7 @@ if($_REQUEST['li']==1){
     				
 				</tr> 
 			</thead> 
-            <? 
+            <?php 
 			while( ($record = $newsRecordSet->getNextRecord()) !== false ){
 			?>
             <tbody> 
@@ -49,19 +49,20 @@ if($_REQUEST['li']==1){
                      <a href="codelete.php?ket=haBer&id=<?=$record[0]?>"><img src="images/icn_trash.png" width="12" title="Hapus"> Hapus</a>
                     
                   </td>
-                    <td><?=$record[berita_judul]?></td> 
-    				<td><?=$record[hits]?></td> 
-    				<td><?=TanggalUbah($record[berita_tanggal])?></td> 
+                    <td><?=$record['berita_judul']?></td> 
+    				<td><?=$record['hits']?></td> 
+    				<td><?=TanggalUbah($record['berita_tanggal'])?></td> 
     				 
 				</tr>  
 			</tbody> 
-			<? }?>
+			<?php }?>
   </table>		
 <div class="clear"></div>
 </div>
 			<footer>
 			  <div class="submit_link">
-               <?     $jmldata = mysql_num_rows(mysql_query("SELECT * FROM co_news "));
+  <?php
+  $jmldata = mysql_num_rows(mysql_query("SELECT * FROM co_news "));
 
     $jmlhalaman  = $p->jumlahHalaman($jmldata, $batas);
     $linkHalaman = $p->navHalaman($_GET[halaman], $jmlhalaman);
@@ -70,7 +71,7 @@ if($_REQUEST['li']==1){
  ?>
               </div>
 			</footer>
-<? }elseif($_REQUEST['li']==2){
+<?php }elseif($_REQUEST['li']==2){
 	$account =new Account();
 	$level='1';
 	$pegRecordSet= $account->getUserSuperduper($level);
@@ -95,7 +96,7 @@ if($_REQUEST['li']==1){
 				        <td width="13%" class="td1">Last Update</td>
                         <td width="14%" class="td1">Keterangan</td>
                       </tr>
-				      <? while( ($record = $pegRecordSet->getNextRecord()) !== false ){
+				      <?php while( ($record = $pegRecordSet->getNextRecord()) !== false ){
 
 						  ?>
 				      <tbody>
@@ -103,21 +104,21 @@ if($_REQUEST['li']==1){
 				          <td align="left" class="td2">
             <a href="coedit.php?tampil=5&id=<?=$record[0]?>&amp;isi=Edit Akun" title="Edit" rel="faberx"><img src="images/icn_edit.png" width="12" title="Edit" /> Edit</a>
             <a href="codelete.php?ket=haAkun&id=<?=$record[0]?>" title="Hapus"><img src="images/icn_trash.png" width="12" title="Hapus" /> Hapus</a> 
-            <a href="?link=copage&li=2&isi=Sub Admin&data=reset&id=<?=$record[0]?>" title="Reset Password"><img src="images/icn_reset.png" width="12" title="Hapus" /> Reset</a> 
+            <a href="?link=copage&li=2&isi=Sub Admin&data=reset&id=<?=$record[0]?>" title="Reset Password"><img src="images/icn_reset.png" width="12" title="Reset" /> Reset</a> 
                           </td>
-				          <td class="td2"># <?=$record[acc_id]?></td>
-				          <td class="td2"><strong><?=$record[acc_user]?></strong></td>
-				          <td class="td2"><?=$record[acc_nama]?></td>
-				          <td class="td2"><?=$record[description]?></td>
-				          <td class="td2"><?=$record[acc_group]?></td>
-				          <td class="td2"><?=TanggalUbah($record[acc_lastupdate])?></td>
-				          <td class="td2"><?=$record[acc_notes]?></td>
+				          <td class="td2"># <?=$record['acc_id']?></td>
+				          <td class="td2"><strong><?=$record['acc_user']?></strong></td>
+				          <td class="td2"><?=$record['acc_nama']?></td>
+				          <td class="td2"><?=$record['description']?></td>
+				          <td class="td2"><?=$record['acc_group']?></td>
+				          <td class="td2"><?=TanggalUbah($record['acc_lastupdate'])?></td>
+				          <td class="td2"><?=$record['acc_notes']?></td>
 			            </tr>
 			          </tbody>
-				      <? }?>
+				      <?php }?>
 			        </table>
 
-<? if($_REQUEST['data']=='reset'){
+<?php if($_REQUEST['data']=='reset'){
 							$id=$_GET['id'];//$gro='jetusat';
 	//$par=new Parameter();
 	$idRecordSet = $account->getAkunById($id); // get the record set for this Id.
@@ -146,7 +147,7 @@ if($_REQUEST['li']==1){
                       </tr>
                     </table>
                     </form>
- <? }?>
+ <?php }?>
 </div>
 
 			<footer>
@@ -155,7 +156,7 @@ if($_REQUEST['li']==1){
 
 
 
-<? }elseif($_REQUEST['li']==3){ 
+<?php }elseif($_REQUEST['li']==3){ 
 	$ref='1';
 	$conten = new Surat(); // create a new news object
     $teamRecordSet = $conten->getSurat(); // set newsRecordSet to a MysqlRecordSet
@@ -182,20 +183,21 @@ if($_REQUEST['li']==1){
 				        <th width="21%">Asal</th>
 			         </tr>
 
-				      <? while( ($record = $teamRecordSet->getNextRecord()) !== false ){?>
+				      <?php
+               while( ($record = $teamRecordSet->getNextRecord()) !== false ){?>
 <tbody>
 					  <tr class="td2">
-                      <td>
+              <td>
                         <a href="coedit.php?tampil=sm&id=<?=$record[0]?>" title="Edit" rel="faber"><img src="images/icn_edit.png" width="12" title="Edit" /> Edit</a> |
                         <a href="codelete.php?ket=haSurati&id=<?=$record[0]?>" title="Hapus" rel="faber"><img src="images/icn_trash.png" width="12" title="Hapus" /> Hapus</a> |
                         <a href="coview.php?det=1&id=<?=$record[0]?>" title="View Surat" rel="faber"><img src="images/icn_search.png" width="12" title="Hapus" /> View</a> 
                         </td>
-				          <td ><?=$record[no_agendasurat]?></td>
-				          <td ><?=$record[nosurat_su]?></td>
-				          <td ><?=$record[perihal_su]?></td>
-				          <td ><?=$record[asal_su]?></td>
+				          <td ><?=$record['no_agendasurat']?></td>
+				          <td ><?=$record['nosurat_su']?></td>
+				          <td ><?=$record['perihal_su']?></td>
+				          <td ><?=$record['asal_su']?></td>
 			            </tr>
-</tbody> <? }?>
+</tbody> <?php }?>
                         </table>
                         </div>
   <div class="clear"></div>
@@ -204,7 +206,7 @@ if($_REQUEST['li']==1){
 			  <div class="submit_link"></div>
 			</footer>
 
-<? }elseif($_REQUEST['li']==4){
+<?php }elseif($_REQUEST['li']==4){
 
 	?>
 <div class="clear"></div>
@@ -220,7 +222,7 @@ if($_REQUEST['li']==1){
                 <input type="text" name="key" style=" width:250px;" placeholder="Masukkan No Agenda Surat"/>
                 <input type="submit" value="Cari" name="cari" />
                 </form><div class="clear"></div>
-                <? if($_POST['cari']){?>
+                <?php if($_POST['cari']){?>
 <table width="100%" cellspacing="0" class="tablesorter"> 
 			<thead> 
 				<tr> 
@@ -230,7 +232,7 @@ if($_REQUEST['li']==1){
     				<th width="30%">Asal</th> 
 				</tr> 
 			</thead> 
-            <? 	
+<?php 	
 	$slide=new Surat();$ref=$_POST['key'];
     $pegRecordSet = $slide->getSearch($ref);
 	while( ($record = $pegRecordSet->getNextRecord()) !== false ){?>
@@ -238,20 +240,20 @@ if($_REQUEST['li']==1){
 				<tr> 
    					<td><a href="coedit.php?tampil=ism&id=<?=$record[0]?>" rel="faber" title="Edit"><img src="images/icn_edit.png" width="12" title="Edit"> Paraf </a>
                    </td> 
-    				<td><?=$record[no_agendasurat]?></td> 
-    				<td><?=ubahTanggal($record[tglmasuk_su])?></td>
-    				<td><?=$record[asal_su]?></td> 
+    				<td><?=$record['no_agendasurat']?></td> 
+    				<td><?=ubahTanggal($record['tglmasuk_su'])?></td>
+    				<td><?=$record['asal_su']?></td> 
  				</tr>  
 			</tbody> 
-			<? }?>
+			<?php }?>
             </table>	
-            <? }?>	
+            <?php }?>	
 <div class="clear"></div>
 </div>
 			<footer>
 			  <div class="submit_link"></div>
 			</footer>
-<? }elseif($_REQUEST['tampil']=='8'){
+<?php }elseif($_REQUEST['tampil']=='8'){
 	$content=new Account();
 	$pegRecordSet = $content->getAkunById($id); // get the record set for this Id.
     $record = NULL; // This will make sure that we dont have the same record when we refresh the page.
@@ -388,7 +390,7 @@ echo"<script>alert('Username dan Password anda sudah diganti');document.location
 			<footer>
 			  <div class="submit_link"></div>
 			</footer>
-<? }elseif($_REQUEST['li']=='51'){
+<?php }elseif($_REQUEST['li']=='51'){
  
 
 	//$album = $conten->getIklanId($ref);	
@@ -406,7 +408,7 @@ Masukkan no agenda surat <br />
       <input type="text" name="key" style=" width:250px;" placeholder="Masukkan No Agenda Surat" value="<?php echo isset($_POST['key']) ? $_POST['key'] : '';?>"/> 
                           <input type="submit" value="Tampilkan" name="tampil" />
                           </form>
-<? 	$tgl=$_POST['key'];
+<?php 	$tgl=$_POST['key'];
 	
 	$conten = new Surat(); // create a new news object
 	$pegRecordSet = $conten->getSearch($tgl); // get the record set for this Id.
@@ -422,13 +424,13 @@ Masukkan no agenda surat <br />
 				        <th width="18%">Tanggal Kirim</th>
                         <th width="18%">Pengirimin</th>
 			         </tr>
-                     <? 
+                     <?php 
                      if($pegRecordSet->getRecordCount() == 0){?>
                       <tr class="td2">
                       <td colspan="4">Data not found
                       </td></tr>
 
-				      <? }else{ while( ($record = $pegRecordSet->getNextRecord()) !== false ){?>
+				      <?php }else{ while( ($record = $pegRecordSet->getNextRecord()) !== false ){?>
 <tbody>
 					  <tr class="td2">
 
@@ -438,16 +440,16 @@ Masukkan no agenda surat <br />
 				          <td ><?=$record[perihal_su]?></td>
                           <td ><?=$record[asal_su]?></td>
 			            </tr>
-</tbody> <? } }?>
-                        </table>
-                        <? }?>
+</tbody> <?php } }?>
+    </table>
+  <?php }?>
   <div class="clear"></div>
 </div>
 			<footer>
 			  <div class="submit_link"></div>
 			</footer>
 
-<? }elseif($_REQUEST['li']=='52'){
+<?php }elseif($_REQUEST['li']=='52'){
  
 
 	//$album = $conten->getIklanId($ref);	
@@ -465,7 +467,7 @@ Pilih tanggal surat <br />
    <input type="text" name="tanggal" id="datepicker" class="datepicker" style=" width:250px;"/> 
    <input type="submit" value="Tampilkan" name="tampil" />
 </form>
-<? 	$tgl=$_POST['tanggal'];
+<?php 	$tgl=$_POST['tanggal'];
 	
 	$conten = new Surat(); // create a new news object
 	$pegRecordSet = $conten->getSuratLapPerhari($tgl); // get the record set for this Id.
@@ -481,32 +483,32 @@ Pilih tanggal surat <br />
 				        <th width="18%">Tanggal Kirim</th>
                         <th width="18%">Pengirimin</th>
 			         </tr>
-                     <? 
+                     <?php 
                      if($pegRecordSet->getRecordCount() == 0){?>
                       <tr class="td2">
                       <td colspan="4">Data not found
                       </td></tr>
 
-				      <? }else{ while( ($record = $pegRecordSet->getNextRecord()) !== false ){?>
+				      <?php }else{ while( ($record = $pegRecordSet->getNextRecord()) !== false ){?>
 <tbody>
 					  <tr class="td2">
 
-				          <td ><?=$record[no_agendasurat]?></td>
-				          <td ><?=$record[tglmasuk_su]?></td>
-				          <td ><?=$record[nosurat_su]?></td>
-				          <td ><?=$record[perihal_su]?></td>
-                          <td ><?=$record[asal_su]?></td>
+				          <td ><?=$record['no_agendasurat']?></td>
+				          <td ><?=$record['tglmasuk_su']?></td>
+				          <td ><?=$record['nosurat_su']?></td>
+				          <td ><?=$record['perihal_su']?></td>
+                          <td ><?=$record['asal_su']?></td>
 			            </tr>
-</tbody> <? } }?>
+</tbody> <?php } }?>
                         </table>
-                        <? }?>
+                        <?php }?>
   <div class="clear"></div>
 </div>
 			<footer>
 			  <div class="submit_link"></div>
 			</footer>
 
-<? }elseif($_REQUEST['li']=='53'){
+<?php }elseif($_REQUEST['li']=='53'){
  
 
 	//$album = $conten->getIklanId($ref);	
@@ -523,29 +525,30 @@ Masukkan bulan dan tahun <br />
 <form action="" enctype="multipart/form-data" method="post">
       <select name="bulan" class="input-selectg">
   		<option selected>Bulan</option>
-  		        <? $arr_bulan=array("","Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
+  		        <?php $arr_bulan=array("","Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
 				$jumlah=count($arr_bulan);
 				for($i=1; $i<=$jumlah; $i++){?>
                 <option value="<?=$i?>" <?php echo isset($_POST['bulan']) && $_POST['bulan']==$i ? 'selected="selected"': '';?>><?=$arr_bulan[$i]?> </option>
-                <? }?>
+                <?php }?>
 	          </select>
                           <select name="tahun" id="tahun">
 				          <option selected="selected">Tahun</option>
-				          <? $d=date('Y');for($i=2010;$i<=$d;$i++){?>
+				          <?php $d=date('Y');for($i=2010;$i<=$d;$i++){?>
 				          <option value="<?=$i?>" <?php echo isset($_POST['tahun']) && $_POST['tahun']==$i ? 'selected="selected"': '';?>>
 				            <?=$i?>
 			              </option>
-				          <? }?>
+				          <?php }?>
 				          </select>
                           <input type="submit" value="Tampilkan" name="tampil" />
                           </form>
-<? 	$bln=$_POST['bulan'];
+<?php
+ 	$bln=$_POST['bulan'];
 	$thn=$_POST['tahun'];
 	$conten = new Surat(); // create a new news object
 	$pegRecordSet = $conten->getSuratLapBulan($bln,$thn); // get the record set for this Id.
     $record = NULL; // This will make sure that we dont have the same record when we refresh the page.
     
-	if($_POST[tampil]){?>
+	if($_POST['tampil']){?>
   <table width="100%" id="mytable">
 		
                       <tr class="td1">
@@ -555,13 +558,13 @@ Masukkan bulan dan tahun <br />
 				        <th width="18%">Tanggal Kirim</th>
                         <th width="18%">Pengirimin</th>
 			         </tr>
-                     <? 
+                     <?php 
                      if($pegRecordSet->getRecordCount() == 0){?>
                       <tr class="td2">
                       <td colspan="4">Data not found
                       </td></tr>
 
-				      <? }else{ while( ($record = $pegRecordSet->getNextRecord()) !== false ){?>
+				      <?php }else{ while( ($record = $pegRecordSet->getNextRecord()) !== false ){?>
 <tbody>
 					  <tr class="td2">
 
@@ -571,15 +574,15 @@ Masukkan bulan dan tahun <br />
 				          <td ><?=$record[perihal_su]?></td>
                           <td ><?=$record[asal_su]?></td>
 			            </tr>
-</tbody> <? } }?>
+</tbody> <?php } }?>
                         </table>
-                        <? }?>
+                        <?php }?>
   <div class="clear"></div>
 </div>
 			<footer>
 			  <div class="submit_link"></div>
 			</footer>
-<? }elseif($_REQUEST['li']=='54'){
+<?php }elseif($_REQUEST['li']=='54'){
 	
 	$id=$_GET['id'];
 	$conten = new Surat(); // create a new news object
@@ -595,17 +598,17 @@ Masukkan bulan dan tahun <br />
                 
 <div class="tab3">Bagian Umum </div> 
 
-                     <? 
+                     <?php 
                      if($pegRecordSet->getRecordCount() == 0){?>
 
 	
 
 
-				      <? }else{ while( ($record = $pegRecordSet->getNextRecord()) !== false ){?>
+				      <?php }else{ while( ($record = $pegRecordSet->getNextRecord()) !== false ){?>
 <div class="panah"></div>
-<div class="tab3"><?=$record[pendisposisi]?></div> 
+<div class="tab3"><?=$record['pendisposisi']?></div> 
 
- <? } }?>
+ <?php } }?>
                         </table>
                         
   <div class="clear"></div><p></p>
@@ -613,7 +616,7 @@ Masukkan bulan dan tahun <br />
 			<footer>
 			  <div class="submit_link"></div>
 			</footer>
-<? }elseif($_REQUEST['li']==6){ 
+<?php }elseif($_REQUEST['li']=='6'){ 
 	$ref=$_GET['id'];
 	$conten = new Surat(); // create a new news object
     $sukeRecordSet = $conten->getSuke($ref); // set newsRecordSet to a MysqlRecordSet
@@ -640,7 +643,7 @@ Masukkan bulan dan tahun <br />
                         <th width="18%">Pengirim</th>
 			         </tr>
 
-				      <? while( ($osurat = $sukeRecordSet->getNextRecord()) !== false ){?>
+				      <?php while( ($osurat = $sukeRecordSet->getNextRecord()) !== false ){?>
 <tbody>
 					  <tr class="td2">
                       <td>
@@ -648,20 +651,20 @@ Masukkan bulan dan tahun <br />
                         <a href="codelete.php?ket=haSurato&id=<?=$osurat[0]?>" title="Hapus" rel="faber"><img src="images/icn_trash.png" width="12" title="Hapus" /> Hapus</a> |
                         <a href="coview.php?det=3&id=<?=$osurat[0]?>" title="View Surat" rel="faber"><img src="images/icn_search.png" width="12" title="Hapus" /> View</a> 
                         </td>
-				          <td ><?=$osurat[sk_noagenda]?></td>
-				          <td ><?=ubahTanggal($osurat[sk_tglterima])?></td>
-				          <td ><?=ubahTanggal($osurat[sk_tglkeluar])?></td>
-				          <td ><?=ubahTanggal($osurat[sk_tglkirim])?></td>
-                          <td ><?=$osurat[sk_pengirim]?></td>
+				          <td ><?=$osurat['sk_noagenda']?></td>
+				          <td ><?=ubahTanggal($osurat['sk_tglterima'])?></td>
+				          <td ><?=ubahTanggal($osurat['sk_tglkeluar'])?></td>
+				          <td ><?=ubahTanggal($osurat['sk_tglkirim'])?></td>
+                          <td ><?=$osurat['sk_pengirim']?></td>
 			            </tr>
-</tbody> <? }?>
+</tbody> <?php }?>
                         </table>
   <div class="clear"></div>
 </div>
 			<footer>
 			  <div class="submit_link"></div>
 			</footer>
-<? }elseif($_REQUEST['li']==7){
+<?php }elseif($_REQUEST['li']==7){
 	
 	?>
 <div class="clear"></div>
@@ -695,7 +698,7 @@ Masukkan bulan dan tahun <br />
 			<footer>
 			  <div class="submit_link"></div>
 			</footer>
-<? }elseif($_REQUEST['li']=='71'){
+<?php }elseif($_REQUEST['li']=='71'){
  
 
 	//$album = $conten->getIklanId($ref);	
@@ -713,7 +716,7 @@ Pilih tanggal surat <br />
    <input type="text" name="tanggal" id="datepicker" class="datepicker" style=" width:250px;"/> 
    <input type="submit" value="Tampilkan" name="tampil" />
 </form>
-<? 	$tgl=$_POST['tanggal'];
+<?php 	$tgl=$_POST['tanggal'];
 	
 	$conten = new Surat(); // create a new news object
 	$pegRecordSet = $conten->getSukeLapPerhari($tgl); // get the record set for this Id.
@@ -729,31 +732,31 @@ Pilih tanggal surat <br />
 				        <th width="18%">Tanggal Kirim</th>
                         <th width="18%">Perihal</th>
 			         </tr>
-                     <? 
+                     <?php
                      if($pegRecordSet->getRecordCount() == 0){?>
                       <tr class="td2">
                       <td colspan="4">Data not found
                       </td></tr>
 
-				      <? }else{ while( ($record = $pegRecordSet->getNextRecord()) !== false ){?>
+				      <?php }else{ while( ($record = $pegRecordSet->getNextRecord()) !== false ){?>
 <tbody>
 					  <tr class="td2">
 
-				          <td ><?=$record[sk_noagenda]?></td>
-				          <td ><?=ubahTanggal($record[sk_tglkeluar])?></td>
-				          <td ><?=ubahTanggal($record[sk_tglterima])?></td>
-				          <td ><?=ubahTanggal($record[sk_tglkirim])?></td>
-                          <td ><?=$record[sk_perihal]?></td>
+				          <td ><?=$record['sk_noagenda']?></td>
+				          <td ><?=ubahTanggal($record['sk_tglkeluar'])?></td>
+				          <td ><?=ubahTanggal($record['sk_tglterima'])?></td>
+				          <td ><?=ubahTanggal($record['sk_tglkirim'])?></td>
+                          <td ><?=$record['sk_perihal']?></td>
 			            </tr>
-</tbody> <? } }?>
+</tbody> <?php } }?>
                         </table>
-                        <? }?>
+                        <?php }?>
   <div class="clear"></div>
 </div>
 			<footer>
 			  <div class="submit_link"></div>
 			</footer>
-<? }elseif($_REQUEST['li']=='72'){
+<?php }elseif($_REQUEST['li']=='72'){
  
 
 	//$album = $conten->getIklanId($ref);	
@@ -770,23 +773,23 @@ Masukkan bulan dan tahun <br />
 <form action="" enctype="multipart/form-data" method="post">
       <select name="bulan" class="input-selectg">
   		<option selected>Bulan</option>
-  		        <? $arr_bulan=array("","Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
+  		        <?php $arr_bulan=array("","Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
 				$jumlah=count($arr_bulan);
 				for($i=1; $i<=$jumlah; $i++){?>
                 <option value="<?=$i?>" <?php echo isset($_POST['bulan']) && $_POST['bulan']==$i ? 'selected="selected"': '';?>><?=$arr_bulan[$i]?> </option>
-                <? }?>
+                <?php }?>
 	          </select>
                           <select name="tahun" id="tahun">
 				          <option selected="selected">Tahun</option>
-				          <? $d=date('Y');for($i=2010;$i<=$d;$i++){?>
+				          <?php $d=date('Y');for($i=2010;$i<=$d;$i++){?>
 				          <option value="<?=$i?>" <?php echo isset($_POST['tahun']) && $_POST['tahun']==$i ? 'selected="selected"': '';?>>
 				            <?=$i?>
 			              </option>
-				          <? }?>
+				          <?php }?>
 				          </select>
                           <input type="submit" value="Tampilkan" name="tampil" />
                           </form>
-<? 	$bln=$_POST['bulan'];
+<?php 	$bln=$_POST['bulan'];
 	$thn=$_POST['tahun'];
 	$conten = new Surat(); // create a new news object
 	$pegRecordSet = $conten->getSukeLapBulan($bln,$thn); // get the record set for this Id.
@@ -802,13 +805,13 @@ Masukkan bulan dan tahun <br />
 				        <th width="18%">Tanggal Kirim</th>
                         <th width="18%">Perihal</th>
 			         </tr>
-                     <? 
+                     <?php 
                      if($pegRecordSet->getRecordCount() == 0){?>
                       <tr class="td2">
                       <td colspan="4">Data not found
                       </td></tr>
 
-				      <? }else{ while( ($record = $pegRecordSet->getNextRecord()) !== false ){?>
+				      <?php }else{ while( ($record = $pegRecordSet->getNextRecord()) !== false ){?>
 <tbody>
 					  <tr class="td2">
 
@@ -818,15 +821,15 @@ Masukkan bulan dan tahun <br />
 				          <td ><?=ubahTanggal($record[sk_tglkirim])?></td>
                           <td ><?=$record[sk_perihal]?></td> 
 			            </tr>
-</tbody> <? } }?>
+</tbody> <?php } }?>
                         </table>
-                        <? }?>
+                        <?php }?>
   <div class="clear"></div>
 </div>
 			<footer>
 			  <div class="submit_link"></div>
 			</footer>            
-<? }elseif($_REQUEST['li']==8){
+<?php }elseif($_REQUEST['li']==8){
 	$id=$_SESSION['id'];
 	$conten = new Surat(); // create a new news object
 	$pegRecordSet = $conten->getSuratAkunBySesi($id); // get the record set for this Id.
@@ -857,7 +860,7 @@ Masukkan bulan dan tahun <br />
 
 			         </tr>
 
-				      <? while( ($record = $pegRecordSet->getNextRecord()) !== false ){?>
+				      <?php while( ($record = $pegRecordSet->getNextRecord()) !== false ){?>
 <tbody>
 					  <tr class="td2">
                       <td>
@@ -870,7 +873,7 @@ Masukkan bulan dan tahun <br />
 				          <td ><?=ubahTanggal($record[tgldisposisi])?></td>
 
 			            </tr>
-</tbody> <? }?>
+</tbody> <?php }?>
                         </table>
   <div class="clear"></div>
 </div>
@@ -878,7 +881,7 @@ Masukkan bulan dan tahun <br />
 			  <div class="submit_link"></div>
 			</footer>
 
-<? }elseif($_REQUEST['li']==9){
+<?php }elseif($_REQUEST['li']==9){
 	$content=new AccesLog();
 	
 	$p      = new Paging8;
@@ -903,7 +906,7 @@ Masukkan bulan dan tahun <br />
                         <th width="26%">Deskripsi</th>
 			         </tr>
 
-				      <? while( ($record = $pegRecordSet->getNextRecord()) !== false ){?>
+				      <?php while( ($record = $pegRecordSet->getNextRecord()) !== false ){?>
 <tbody>
 					  <tr class="td2">
                       <td valign="top" ><?=$record[logAction]?></td>
@@ -912,7 +915,7 @@ Masukkan bulan dan tahun <br />
 				          <td valign="top" ><?=$record[logUrl]?></td>
                           <td valign="top" ><?=$record[logDesc]?></td>
 			            </tr>
-</tbody> <? }?>
+</tbody> <?php }?>
                         </table>
 </div>
 <div class="clear"></div>
@@ -920,7 +923,7 @@ Masukkan bulan dan tahun <br />
 			  <div class="submit_link">
               <div class="page">
 <div class="page12">
-                <?
+                <?php
 		  $jmldata = mysql_num_rows(mysql_query("SELECT * FROM co_logacces"));
 
     $jmlhalaman  = $p->jumlahHalaman($jmldata, $batas);
@@ -931,7 +934,7 @@ Masukkan bulan dan tahun <br />
  </div></div>
               </div>
 			</footer>
-<? }elseif($_REQUEST['li']=='p8'){
+<?php }elseif($_REQUEST['li']=='p8'){
 	//$hasiloperasi =new Parameter();
 	//$pegRecordSet= $hasiloperasi->getGperambahan();
 	?>
@@ -950,7 +953,7 @@ Masukkan bulan dan tahun <br />
  	<div class="button2"><a href="?link=copage&li=p8&isi=Parameter&view=access">Acces Login</a></div>
     <div class="clear"></div>
 </div>
-<? if($_REQUEST['view']=='bagian'){
+<?php if($_REQUEST['view']=='bagian'){
 	$parameter =new Parameter();
 	$group='bagian';
 	
@@ -978,10 +981,10 @@ Masukkan bulan dan tahun <br />
 
 
   </tr>
-  <? while( ($trecord2 = $pegRecordSet2->getNextRecord()) !== false ){?>
+  <?php while( ($trecord2 = $pegRecordSet2->getNextRecord()) !== false ){?>
   <tr >
 <td align="left" class="td2">
-	<a href="coedit.php?tampil=33&nm=bagian&xid=<?=$trecord2[id]?>" rel="faber"  title="Edit"><img src="images/icn_edit.png" width="12" title="Edit" /> Edit</a> 
+	<a href="coedit.php?tampil=33&nm=bagian&xid=<?php echo $trecord2['id'];?>" rel="faber"  title="Edit"><img src="images/icn_edit.png" width="12" title="Edit" /> Edit</a> 
 	<a href="codelete.php?ket=haParameter&id=<?=$trecord2[id]?>&nm=bagian" rel="faber" title="Hapus"><img src="images/icn_trash.png" alt="" width="12" title="Trash" /> Hapus</a>
 
    </td>
@@ -989,9 +992,9 @@ Masukkan bulan dan tahun <br />
     <td width="21%" class="td2"><?=$trecord2[description]?></td>
     <td width="63%" class="td2"><?=$trecord2[notes]?></td>
   </tr>
-  <? }?>
+  <?php }?>
 </table>
-<? }elseif($_REQUEST['view']=='jepengirim'){
+<?php }elseif($_REQUEST['view']=='jepengirim'){
 	$parameter =new Parameter();
 	$group='jenis_kirim';
 	
@@ -1019,7 +1022,7 @@ Masukkan bulan dan tahun <br />
 
 
   </tr>
-  <? while( ($trecord2 = $pegRecordSet2->getNextRecord()) !== false ){?>
+  <?php while( ($trecord2 = $pegRecordSet2->getNextRecord()) !== false ){?>
   <tr >
 <td align="left" class="td2">
 	<a href="coedit.php?tampil=33&nm=jepeng&xid=<?=$trecord2[id]?>" rel="faber" title="Edit"><img src="images/icn_edit.png" width="12" title="Edit" /> Edit</a> 
@@ -1031,9 +1034,9 @@ Masukkan bulan dan tahun <br />
 
 
   </tr>
-  <? }?>
+  <?php }?>
 </table>
-<? }elseif($_REQUEST['view']=='nmpengirim'){
+<?php }elseif($_REQUEST['view']=='nmpengirim'){
 	$parameter =new Parameter();
 	$group='pengirim';
 	
@@ -1061,21 +1064,21 @@ Masukkan bulan dan tahun <br />
 
 
   </tr>
-  <? while( ($trecord2 = $pegRecordSet2->getNextRecord()) !== false ){?>
+  <?php while( ($trecord2 = $pegRecordSet2->getNextRecord()) !== false ){?>
   <tr >
 <td align="left" class="td2">
 	<a href="coedit.php?tampil=33&nm=peng&xid=<?=$trecord2[id]?>" rel="faber" title="Edit"><img src="images/icn_edit.png" width="12" title="Edit" /> Edit</a> 
 	<a href="codelete.php?ket=haParameter&id=<?=$trecord2[id]?>&nm=peng" rel="faber" title="Hapus"><img src="images/icn_trash.png" alt="" width="12" title="Trash" /> Hapus</a>
    </td>
-    <td width="5%" class="td2" align="center"><?=$trecord2[id]?></td>
-    <td width="21%" class="td2"><?=$trecord2[description]?></td>
-    <td width="63%" class="td2"><?=$trecord2[notes]?></td>
+    <td width="5%" class="td2" align="center"><?=$trecord2['id']?></td>
+    <td width="21%" class="td2"><?=$trecord2['description']?></td>
+    <td width="63%" class="td2"><?=$trecord2['notes']?></td>
 
 
   </tr>
-  <? }?>
+  <?php }?>
   </table>
-<? }elseif($_REQUEST['view']=='access'){
+<?php }elseif($_REQUEST['view']=='access'){
 	$parameter =new Parameter();
 	$group='user_level';
 	
@@ -1103,17 +1106,17 @@ Masukkan bulan dan tahun <br />
 
 
   </tr>
-  <? while( ($trecord2 = $pegRecordSet2->getNextRecord()) !== false ){?>
+  <?php while( ($trecord2 = $pegRecordSet2->getNextRecord()) !== false ){?>
   <tr >
 <td align="left" class="td2">
-	<a href="coedit.php?tampil=3&id=<?=$trecord2[id]?>" rel="faber" title="Edit"><img src="images/icn_edit.png" width="12" title="Edit" /> Edit</a> 
-	<a href="codelete.php?ket=haParameteraccess&id=<?=$trecord2[id]?>&group=user_level" title="Hapus" rel="faber"><img src="images/icn_trash.png" alt="" width="12" title="Trash" /> Hapus</a>
+	<a href="coedit.php?tampil=3&id=<?=$trecord2['id']?>" rel="faber" title="Edit"><img src="images/icn_edit.png" width="12" title="Edit" /> Edit</a> 
+	<a href="codelete.php?ket=haParameteraccess&id=<?=$trecord2['id']?>&group=user_level" title="Hapus" rel="faber"><img src="images/icn_trash.png" alt="" width="12" title="Trash" /> Hapus</a>
    </td>
-    <td width="5%" class="td2" align="center"><?=$trecord2[id]?></td>
-    <td width="21%" class="td2"><?=$trecord2[description]?></td>
-    <td width="63%" class="td2"><?=$trecord2[notes]?></td>
+    <td width="5%" class="td2" align="center"><?=$trecord2['id']?></td>
+    <td width="21%" class="td2"><?=$trecord2['description']?></td>
+    <td width="63%" class="td2"><?=$trecord2['notes']?></td>
   </tr>
-  <? }?>
+  <?php }?>
   <tr >
     <td colspan="8" >&nbsp;</td>
   </tr>
@@ -1125,7 +1128,7 @@ Masukkan bulan dan tahun <br />
 			  <div class="submit_link"></div>
 			</footer>
 
-<? }}elseif($_REQUEST['li']=='11'){
+<?php }}elseif($_REQUEST['li']=='11'){
 	$surat =new Surat();
 	//$group='sub_bidang';
 	//$group2='jetusat';
@@ -1152,24 +1155,24 @@ Masukkan bulan dan tahun <br />
    <th width="21%">Nomor Surat</th>
    <th width="24%">Perihal</th>
   </tr>
-  <? while( ($record = $teamRecordSet->getNextRecord()) !== false ){?>
+  <?php while( ($record = $teamRecordSet->getNextRecord()) !== false ){?>
  <tbody>
   <tr class="td2">
    <td>
-   <a href="coedit.php?tampil=sm&id=<?=$record[0]?>" title="Edit" rel="faber"><img src="images/icn_edit.png" width="12" title="Edit" /> Edit</a> |
-   <a href="codelete.php?ket=haSurati&id=<?=$record[0]?>" title="Hapus" rel="faber"><img src="images/icn_trash.png" width="12" title="Hapus" /> Hapus</a> |
-   <a href="coview.php?det=1&id=<?=$record[0]?>" title="View Surat" rel="faber"><img src="images/icn_search.png" width="12" title="Hapus" /> View</a> 
+   <a href="coedit.php?tampil=sm&id=<?=$record['0']?>" title="Edit" rel="faber"><img src="images/icn_edit.png" width="12" title="Edit" /> Edit</a> |
+   <a href="codelete.php?ket=haSurati&id=<?=$record['0']?>" title="Hapus" rel="faber"><img src="images/icn_trash.png" width="12" title="Hapus" /> Hapus</a> |
+   <a href="coview.php?det=1&id=<?=$record['0']?>" title="View Surat" rel="faber"><img src="images/icn_search.png" width="12" title="Hapus" /> View</a> 
    </td>
-	<td ><?=$record[no_agendasurat]?></td>
-	<td ><?=$record[nosurat_su]?></td>
-	<td ><?=$record[perihal_su]?></td>
-	<td ><?=$record[asal_su]?></td>
+	<td ><?=$record['no_agendasurat']?></td>
+	<td ><?=$record['nosurat_su']?></td>
+	<td ><?=$record['perihal_su']?></td>
+	<td ><?=$record['asal_su']?></td>
  </tr>
-</tbody> <? }?>
+</tbody> <?php }?>
 </table>
 </div>
 </article>
 <footer>
  <div class="submit_link"></div>
 </footer>
-<? }?>
+<?php }?>
