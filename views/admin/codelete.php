@@ -13,7 +13,7 @@ require"../../config/includes.php";
 		});
 	});
 </script>
-<?
+<?php
 
 
 if($_GET['ket']=='haParameteraccess')
@@ -43,7 +43,7 @@ Apakah anda yakin Ingin menghapus Access <br />
     <label><input type="button" value="Batal" onClick="javascript:$.facebox.close();"></label>
     </div></form>
 
-<?
+<?php
 }
 elseif($_GET['ket']=='haParameter')
 {
@@ -76,7 +76,7 @@ Apakah anda yakin Ingin menghapus <?=$nm?> <br />
     <label><input type="button" value="Batal" onClick="javascript:$.facebox.close();"></label>
     </div></form>
 
-<?
+<?php
 }
 
 elseif($_GET['ket']=='haSurati')
@@ -103,8 +103,8 @@ Apakah anda yakin Ingin menghapus surat <br />
     <input type="submit" value="Hapus Surat" name="hsurat" class="tombol" id="hsurat"> 
     <label><input type="button" value="Batal" onClick="javascript:$.facebox.close();"></label>
     </div></form>
-	<?	?>
-	<? 
+ 
+<?php 
 }
 elseif($_GET['ket']=='haSurato')
 {
@@ -130,7 +130,7 @@ Apakah anda yakin Ingin menghapus surat <br />
     <input type="submit" value="Hapus Surat" name="hsurato" class="tombol" id="hsurat"> 
     <label><input type="button" value="Batal" onClick="javascript:$.facebox.close();"></label>
     </div></form>
-    <?
+<?php
 }
 elseif($_GET['ket']=='haisu')
 {
@@ -182,7 +182,7 @@ Apakah anda yakin Ingin menghapus <br />
     <input type="submit" value="Hapus Surat" name="hism" class="tombol" id="hsurat"> 
     <label><input type="button" value="Batal" onClick="javascript:$.facebox.close();"></label>
     </div></form>
-    <?
+    <?php
 }
 elseif($_GET['ket']=='haAlbum')
 {
@@ -200,7 +200,7 @@ elseif($_GET['ket']=='haAkun')
 	//$group = $_GET['group'];
 	$akun->deleteAkun($id);
 	$akun->deleteAkunAcces($id);
-	header("location:index.php?link=copage&?=24&isi=Data Akun&msg=12");
+	header("location:index.php?link=copage&?li=2&isi=Data Akun&msg=12");
 }
 
 elseif($_GET['ket']=='haPet')
