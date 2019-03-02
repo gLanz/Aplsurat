@@ -48,7 +48,7 @@ if(isset($_SERVER['REQUEST_METHOD']) && !empty($_SERVER['REQUEST_METHOD']) && is
 		$uptodate->editUpdate1($post2);
 		echo"Berhasil";?>
         <script>tutup();refresh();</script>      
-<? }
+<?php }
 		
 }
 elseif(isset($_SERVER['REQUEST_METHOD']) && !empty($_SERVER['REQUEST_METHOD']) && isset($_POST['tsuratkeluar']))
@@ -111,7 +111,7 @@ elseif(isset($_SERVER['REQUEST_METHOD']) && !empty($_SERVER['REQUEST_METHOD']) &
 		$logging->addLog($post3);
 			header("location:index.php?link=copage&li=6&isi=SuratKeluar&msg=27");?>
         <script>tutup();refresh();</script> 
-<? } 
+<?php } 
 		
 }
 //--------Batas edit coy -------//
@@ -152,7 +152,7 @@ elseif(isset($_SERVER['REQUEST_METHOD']) && !empty($_SERVER['REQUEST_METHOD']) &
         <script>tutup();
 		refresh();			
         </script> 
-        <? 
+        <?php 
 }
 elseif(isset($_SERVER['REQUEST_METHOD']) && !empty($_SERVER['REQUEST_METHOD']) && isset($_POST['uisurat']))
 {
@@ -237,7 +237,7 @@ elseif(isset($_SERVER['REQUEST_METHOD']) && !empty($_SERVER['REQUEST_METHOD']) &
 	$logging->addLog($post3);
 	header("location:index.php?link=copage&li=6&isi=SuratKeluar&msg=27");?>
     <script>tutup();refresh();</script> 
-    <? 
+    <?php 
 	}
 }
 elseif($_POST['isuratstatus'])
@@ -266,7 +266,7 @@ elseif($_POST['isuratstatus'])
 		$surat->addStatusSurat($post);
 		echo"Insert Sukses";?>
         <script>tutup();refresh();</script> 
-        <?
+        <?php
 	}
 }
 elseif($_POST['usuratstatus'])
@@ -296,7 +296,7 @@ elseif($_POST['usuratstatus'])
 		$surat->editStatusSurat($post);
 		echo"Insert Sukses";?>
         <script>tutup();refresh();</script> 
-        <?
+        <?php
 	}
 }
 
@@ -339,7 +339,7 @@ elseif($_POST['taccess'])
 		$akun->addAccesUser($insert);
 		echo"Berhasil";?>
         <script>tutup();refresh();</script> 
-     <?
+     <?php
 	}
 }
 elseif($_POST['uaccess'])
@@ -385,7 +385,7 @@ elseif($_POST['uaccess'])
 		$logging->addLog($post3);
 		echo"Update Sukses";?>
         <script>tutup();refresh();</script> 
-        <?
+        <?php
 	}
 }
 elseif($_POST['tparameter'])
@@ -414,7 +414,7 @@ elseif($_POST['tparameter'])
 		$parameter->addParameter($post);
 		echo"Berhasil";?>
         <script>tutup();refresh();</script> 
-     <?
+     <?php
 	}
 }
 elseif($_POST['uparameter'])
@@ -437,7 +437,7 @@ elseif($_POST['uparameter'])
 		$parameter->editParameter($post);
 		echo"Update Sukses";?>
         <script>tutup();refresh();</script> 
-        <?
+        <?php
 	}
 }
 elseif($_POST['addUser'])
@@ -483,7 +483,7 @@ elseif($_POST['addUser'])
 		$logging->addLog($post3);			
 		echo"Akun Sukses ditambah";?>
         <script>tutup();refresh();</script> 
-        <?
+        <?php
 	}
 }
 elseif($_POST['uAkun'])
@@ -556,7 +556,7 @@ elseif($_POST['hsurat'])
 	$logging->addLog($post3);
 	$surat->deleteMail($id);
 	echo"Berhasil dihapus";?>
-	<script>tutup();</script>   <?
+	<script>tutup();</script>   <?php
 
 }
 elseif($_POST['hsurato'])
@@ -573,7 +573,7 @@ elseif($_POST['hsurato'])
 	$logging->addLog($post3);
 	$surat->deleteMailOut($id);
 	echo"Berhasil dihapus";?>
-	<script>tutup();</script>   <?
+	<script>tutup();</script>   <?php
 
 }
 elseif($_POST['haccess'])
@@ -596,7 +596,7 @@ elseif($_POST['haccess'])
 	$parameter->deleteParameter($id,$name);
 	$akun->deleteAkunAcces($id);
 	echo"Berhasil dihapus";?> 
-	<script>tutup();</script>   <?
+	<script>tutup();</script>   <?php
 	}
 }
 elseif($_POST['hparameter'])
@@ -613,7 +613,7 @@ elseif($_POST['hparameter'])
 	$logging->addLog($post3);
 	$parameter->deleteParameter($id,$name);
 	echo"Berhasil dihapus";?> 
-	<script>tutup();</script>   <?
+	<script>tutup();</script>   <?php
 	//}
 }
 elseif($_POST['hism'])
@@ -631,7 +631,7 @@ elseif($_POST['hism'])
 	
 	$surat->deleteISM($id);
 	echo"Berhasil dihapus";?> 
-	<script>tutup();</script>   <?
+	<script>tutup();</script>   <?php
 	//}
 }
 ///--------------Batas ---------------------///
