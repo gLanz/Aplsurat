@@ -158,21 +158,21 @@ top: auto;
 	
 	<section id="secondary_bar">
 		<div class="user">
-			<p> #<?=$id?> | <? print $_SESSION['nama'];?></p>
+			<p> #<?=$id?> | <?php print $_SESSION['nama'];?></p>
 			<!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
 		</div>
 		<div class="breadcrumbs_container">
 			<article class="breadcrumbs"><a href="index.php">Panel Admin</a> <div class="breadcrumb_divider"></div> <a class="current">
-            <? if(empty($_REQUEST[isi])){?>
+            <?php if(empty($_REQUEST[isi])){?>
             Dashboard
-            <? }else{ print $_GET['isi']; }?>
+            <?php }else{ print $_GET['isi']; }?>
             
             </a></article>
 		</div>
 	</section><!-- end of secondary bar -->
 	
 	<aside id="sidebar" class="column">
-		<? 	
+		<?php	
 	$acces=new Account();
 	//print $level;
 	$iduser=$_SESSION['id'];
@@ -189,25 +189,25 @@ top: auto;
      
         	<h3>MASTER</h3>
 		<ul class="toggle">
-      <? if(tampilMenu($trecord1['action_1'])){ ?><li class="icn_categories"><a href="?link=copage&li=2&isi=Halaman">Akun Admin</a></li><? }?>
-      <? if(tampilMenu($trecord1['action_2'])){ ?><li class="icn_security"><a href="?link=copage&tampil=8&isi=Options Administrator">Ganti Password</a></li><? }?>
-       <? if(tampilMenu($trecord1['action_3'])){ ?><li class="icn_categories"><a href="?link=copage&li=p8&isi=Parameter">Parameter</a></li> <? }?>
-        <? if(tampilMenu($trecord1['action_4'])){ ?><li class="icn_categories"><a href="?link=copage&li=9&isi=Aktivitas">Aktivitas Log</a></li> <? }?>
-         <? if(tampilMenu($trecord1['action_5'])){ ?><li class="icn_jump_back"><a href="logout.php">Keluar</a></li><? }?>
+      <?php if(tampilMenu($trecord1['action_1'])){ ?><li class="icn_categories"><a href="?link=copage&li=2&isi=Halaman">Akun Admin</a></li><?php }?>
+      <?php if(tampilMenu($trecord1['action_2'])){ ?><li class="icn_security"><a href="?link=copage&tampil=8&isi=Options Administrator">Ganti Password</a></li><?php }?>
+       <?php if(tampilMenu($trecord1['action_3'])){ ?><li class="icn_categories"><a href="?link=copage&li=p8&isi=Parameter">Parameter</a></li> <?php }?>
+        <?php if(tampilMenu($trecord1['action_4'])){ ?><li class="icn_categories"><a href="?link=copage&li=9&isi=Aktivitas">Aktivitas Log</a></li> <?php }?>
+         <?php if(tampilMenu($trecord1['action_5'])){ ?><li class="icn_jump_back"><a href="logout.php">Keluar</a></li><?php }?>
 		</ul>
 		<h3>Surat Masuk</h3>
 		<ul class="toggle">
-			<? if(tampilMenu($trecord1['action_6'])){ ?><li class="icn_categories"><a href="?link=copage&li=3&isi=Surat">Post Surat</a></li><? }?>
-            <? if(tampilMenu($trecord1['action_7'])){ ?><li class="icn_new_article"><a href="?link=copage&li=4&isi=Surat">Cari Surat</a></li><? }?>
-            <? if(tampilMenu($trecord1['action_8'])){ ?><li class="icn_categories"><a href="?link=copage&li=5&isi=RiviewSuMa">Result</a></li><? }?>
-            <? if(tampilMenu($trecord1['action_9'])){ ?> <li class="icn_categories"><a href="?link=copage&li=8&isi=RiviewSuMa">Review</a></li><? }?>
+	<?php if(tampilMenu($trecord1['action_6'])){ ?><li class="icn_categories"><a href="?link=copage&li=3&isi=Surat">Post Surat</a></li><?php }?>
+        <?php if(tampilMenu($trecord1['action_7'])){ ?><li class="icn_new_article"><a href="?link=copage&li=4&isi=Surat">Cari Surat</a></li><?php }?>
+        <?php if(tampilMenu($trecord1['action_8'])){ ?><li class="icn_categories"><a href="?link=copage&li=5&isi=RiviewSuMa">Result</a></li><?php }?>
+        <?php if(tampilMenu($trecord1['action_9'])){ ?> <li class="icn_categories"><a href="?link=copage&li=8&isi=RiviewSuMa">Review</a></li><?php }?>
            </ul>
            <? }?>
       <h3>Surat Keluar</h3> 
       <ul class="toggle">
-           <? if(tampilMenu($trecord1['action_10'])){ ?><li class="icn_categories"><a href="?link=copage&li=6&isi=SuratKeluar">Post Surat</a></li><? }?>
-           <? if(tampilMenu($trecord1['action_11'])){ ?><li class="icn_categories"><a href="?link=copage&li=7&isi=RiviewSuKe">Result</a></li><? }?>
-         <!--  < ? if(tampilMenu($trecord1['action_12'])){ ?><li class="icn_categories"><a href="?link=copage&li=11&isi=SuratBack">Surat Kembali</a></li>< ? }?> ->
+           <?php if(tampilMenu($trecord1['action_10'])){ ?><li class="icn_categories"><a href="?link=copage&li=6&isi=SuratKeluar">Post Surat</a></li><?php }?>
+           <?php if(tampilMenu($trecord1['action_11'])){ ?><li class="icn_categories"><a href="?link=copage&li=7&isi=RiviewSuKe">Result</a></li><?php }?>
+         <!--  < ?php if(tampilMenu($trecord1['action_12'])){ ?><li class="icn_categories"><a href="?link=copage&li=11&isi=SuratBack">Surat Kembali</a></li>< ?php }?> ->
            
 		</ul>
    
@@ -222,11 +222,11 @@ top: auto;
 	
 	<section id="main" class="column">
 		 
-		<? include("../../libs/core/inc.msg.php");?>
+		<?php include("../../libs/core/inc.msg.php");?>
 		
 		<!-- end of stats article --><!-- end of content manager article --><!-- end of messages article -->
 		
- <? $link=$_REQUEST['link'];
+ <?php $link=$_REQUEST['link'];
  if(isset($link)){include"$link.php";}
  else{include"home.php";}
  ?>  
@@ -240,4 +240,4 @@ top: auto;
 </body>
 
 </html>
-<? //}?>
+<?php //}?>
