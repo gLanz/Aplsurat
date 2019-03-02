@@ -58,7 +58,6 @@ elseif($_GET['ket']=='haParameter')
 	$record = NULL;
 	if($pegParameter->getRecordCount()==1){
 	$record = $pegParameter->getNextRecord();}
-
 	?>
 	 <div id="judulForm">KONFIRMASI DELETE PARAMETER <?=$nm?></div>
 
