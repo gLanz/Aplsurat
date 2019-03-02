@@ -28,9 +28,9 @@ if($_REQUEST[tampil]=='sm')
 	$id = $_GET['id'];
 	$content=new Surat();
 	$pegRecordSet = $content->getSuratById($id); // get the record set for this Id.
-    $record = NULL; // This will make sure that we dont have the same record when we refresh the page.
-    if($pegRecordSet->getRecordCount() == 1)
-    {$record = $pegRecordSet->getNextRecord();}
+    	$record = NULL; // This will make sure that we dont have the same record when we refresh the page.
+    	if($pegRecordSet->getRecordCount() == 1)
+    	{$record = $pegRecordSet->getNextRecord();}
 
 ?>
 <div class="clear"></div>
